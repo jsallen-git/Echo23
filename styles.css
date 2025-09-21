@@ -111,6 +111,50 @@ body {
 .sidebar.collapsed .nav-label {
   display: none;
 }
+/* Adding sub-menu styles that expand to the right */
+.nav-item-container {
+  position: relative;
+}
+
+.sub-menu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 180px;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(107, 114, 128, 0.3);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+  /* Increased z-index to ensure sub-menus are always on top */
+  z-index: 999999;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.nav-item-container:hover .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.sub-menu-item {
+  display: block;
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+}
+
+.sub-menu-item:hover {
+  background: rgba(59, 130, 246, 0.2);
+  color: white;
+}
 
 /* Main Content Styles */
 .main-content {
@@ -145,6 +189,9 @@ body {
   border: 1px solid rgba(107, 114, 128, 0.5);
   border-radius: 0.75rem;
   padding: 1.5rem;
+  /* Added lower z-index to ensure charts stay behind sub-menus */
+  position: relative;
+  z-index: 1;
 }
 
 .chart-title {
@@ -160,6 +207,8 @@ body {
   height: 200px;
   width: 200px;
   margin: 0 auto;
+  /* Ensure chart containers have lower z-index */
+  z-index: 1;
 }
 
 .chart-center {
@@ -227,6 +276,9 @@ body {
   border: 1px solid rgba(107, 114, 128, 0.5);
   border-radius: 0.75rem;
   padding: 1.5rem;
+  /* Added lower z-index to ensure bar charts stay behind sub-menus */
+  position: relative;
+  z-index: 1;
 }
 
 .bar-chart-container {
@@ -332,4 +384,16 @@ body {
   .search-section {
     left: 20px;
   }
+
+  /* Adjust sub-menu positioning for mobile */
+  .sub-menu {
+    position: fixed;
+    left: 60px;
+    min-width: 160px;
+  }
+}
+
+/* Hide sub-menus when sidebar is collapsed */
+.sidebar.collapsed .sub-menu {
+  display: none;
 }
