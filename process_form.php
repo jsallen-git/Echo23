@@ -1,9 +1,9 @@
     <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $servername = "localhost";
-        $username = "your_db_username";
-        $password = "your_db_password";
-        $dbname = "your_database_name";
+        $servername = "DB1";
+        $username = "serviceSQL";
+        $password = "Linkup1J";
+        $dbname = "echo23";
 
         // Create connection
         $conn = new mysqli($servername, $username, $password, $dbname);
