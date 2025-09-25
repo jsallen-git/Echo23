@@ -1,7 +1,18 @@
-    <form action="process_form.php" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <button type="submit">Submit</button>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MS SQL Form</title>
+</head>
+<body>
+    <h2>User Info</h2>
+    <form action="submit.php" method="POST">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <input type="submit" value="Submit">
     </form>
+</body>
+</html>

@@ -1,32 +1,32 @@
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $servername = "DB1";
-        $username = "serviceSQL";
-        $password = "Linkup1J";
-        $dbname = "echo23";
+<?php
+$serverName = "localhost"; // or your server IP
+$connectionOptions = array(
+    "Database" => "TestDB",
+    "Uid" => "serviceSQL",
+    "PWD" => "Linkup1J"
+);
 
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
+// Connect to SQL Server
+$conn = sqlsrv_connect($serverName, $connectionOptions);
 
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+if ($conn === false) {
+    die(print_r(sqlsrv_errors(), true));
+}
 
-        $username_input = $_POST['username'];
-        $email_input = $_POST['email'];
+// Get form data
+$name = $_POST['name'];
+$email = $_POST['email'];
 
-        // Prepare and bind
-        $stmt = $conn->prepare("INSERT INTO users (username, email) VALUES (?, ?)");
-        $stmt->bind_param("ss", $username_input, $email_input);
+// Prepare and execute insert query
+$sql = "INSERT INTO Users (Name, Email) VALUES (?, ?)";
+$params = array($name, $email);
+$stmt = sqlsrv_query($conn, $sql, $params);
 
-        if ($stmt->execute()) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $stmt->error;
-        }
+if ($stmt === false) {
+    die(print_r(sqlsrv_errors(), true));
+} else {
+    echo "Record inserted successfully!";
+}
 
-        $stmt->close();
-        $conn->close();
-    }
-    ?>
+sqlsrv_close($conn);
+?>
