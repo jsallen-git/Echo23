@@ -1,12 +1,12 @@
 <?php
 
-$dsn = "mssql:host=DB1;dbname=echo23";
+$dsn = "sqlsrv:Server=DB1;Database=echo23";
 $dbusername = "serviceSQL";
 $dbpassword = "Linkup1J";
 
 try {
     $pdo = new PDO($dsn, $dbusername, $dbpassword);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION)
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ← semicolon added
 } catch (PDOException $e) {
-    echo "Conneciton failed: " .$e->getMessage();
+    echo "Connection failed: " . $e->getMessage(); // ← typo fixed
 }
