@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // SQL Server connection info
     $serverName = "192.168.1.247"; // or your server name
     $connectionOptions = [
-        "Database" => "ech23",
+        "Database" => "echo23",
         "Uid" => "serviceSQL",
         "PWD" => "Linkup1J"
     ];
