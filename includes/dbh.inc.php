@@ -6,7 +6,7 @@ $dbpassword = "Linkup1J";
 
 try {
     $pdo = new PDO($dsn, $dbusername, $dbpassword);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); // ← semicolon added
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage(); // ← typo fixed
+    echo "Connection failed: " . $e->getMessage();
 }
