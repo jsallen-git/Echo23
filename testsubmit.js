@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const config = {
     user: 'serviceSQL',
     password: 'Linkup1J',
-    server: '192.168.1.247',
+    server: 'DB1',
     database: 'echo23',
     options: {
         encrypt: false, // Set to true if using Azure
