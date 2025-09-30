@@ -37,6 +37,18 @@ app.listen(3000, () => {
 
 document.getElementById('myForm').onsubmit = function(e) {
   e.preventDefault();
-  // Your JS code here
-  alert('Form submitted!');
+  const username = document.getElementById('username').value;
+
+  fetch('/api/saveUser', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username })
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('User saved!');
+  })
+  .catch(error => {
+    alert('Error saving user: ' + error.message);
+  });
 };
