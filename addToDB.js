@@ -18,7 +18,7 @@ const config = {
 app.get('/insert-name', async (req, res) => {
   try {
     await sql.connect(config);
-    const result = await sql.query("INSERT INTO [dbo].[echo23] ([username], [email], [pwd]) VALUES ('test', 'test@email.com', 'testPass')");
+    const result = await sql.query("INSERT INTO [dbo].[users] ([username], [email], [pwd]) VALUES ('test', 'test@email.com', 'testPass')");
     console.log('✅ Insert result:', result);
     await sql.close();
     res.json({ success: true, name: 'test', rowsAffected: result.rowsAffected });
