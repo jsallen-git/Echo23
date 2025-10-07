@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Utilization</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -108,161 +108,9 @@
         <!-- Main Content Matrix -->
         <div class="main-content">
             <div class="content-container">
-                <h1 class="main-title">Dashboard Overview</h1>
-
-                <div class="charts-grid">
-                    <div class="chart-card">
-                        <h3 class="chart-title">Title Chart 1</h3>
-                        <div class="chart-container">
-                            <canvas id="salesChart" width="200" height="200"></canvas>
-                            <div class="chart-center">
-                                <div class="center-value">75%</div>
-                                <div class="center-label">Total</div>
-                            </div>
-                        </div>
-                        <p class="chart-subtitle">Sub-title Chart 1</p>
-                        <div class="chart-legend">
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #10b981;"></div>
-                                <span class="legend-text">Completed</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #374151;"></div>
-                                <span class="legend-text">Remaining</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-card">
-                        <h3 class="chart-title">Title Chart 2</h3>
-                        <div class="chart-container">
-                            <canvas id="usersChart" width="200" height="200"></canvas>
-                            <div class="chart-center">
-                                <div class="center-value">68%</div>
-                                <div class="center-label">Total</div>
-                            </div>
-                        </div>
-                        <p class="chart-subtitle">Sub-title Chart 2</p>
-                        <div class="chart-legend">
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #3b82f6;"></div>
-                                <span class="legend-text">Active</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #374151;"></div>
-                                <span class="legend-text">Inactive</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-card">
-                        <h3 class="chart-title">Title Chart 3</h3>
-                        <div class="chart-container">
-                            <canvas id="revenueChart" width="200" height="200"></canvas>
-                            <div class="chart-center">
-                                <div class="center-value">82%</div>
-                                <div class="center-label">Total</div>
-                            </div>
-                        </div>
-                        <p class="chart-subtitle">Sub-title Chart 3</p>
-                        <div class="chart-legend">
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #f59e0b;"></div>
-                                <span class="legend-text">This Month</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #374151;"></div>
-                                <span class="legend-text">Remaining</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-card">
-                        <h3 class="chart-title">Title Chart 4</h3>
-                        <div class="chart-container">
-                            <canvas id="tasksChart" width="200" height="200"></canvas>
-                            <div class="chart-center">
-                                <div class="center-value">75%</div>
-                                <div class="center-label">Total</div>
-                            </div>
-                        </div>
-                        <p class="chart-subtitle">Sub-title Chart 4</p>
-                        <div class="chart-legend">
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #10b981;"></div>
-                                <span class="legend-text">Completed</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #374151;"></div>
-                                <span class="legend-text">Remaining</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-card">
-                        <h3 class="chart-title">Title Chart 5</h3>
-                        <div class="chart-container">
-                            <canvas id="satisfactionChart" width="200" height="200"></canvas>
-                            <div class="chart-center">
-                                <div class="center-value">68%</div>
-                                <div class="center-label">Total</div>
-                            </div>
-                        </div>
-                        <p class="chart-subtitle">Sub-title Chart 5</p>
-                        <div class="chart-legend">
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #3b82f6;"></div>
-                                <span class="legend-text">Active</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #374151;"></div>
-                                <span class="legend-text">Inactive</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-card">
-                        <h3 class="chart-title">Title Chart 6</h3>
-                        <div class="chart-container">
-                            <canvas id="performanceChart" width="200" height="200"></canvas>
-                            <div class="chart-center">
-                                <div class="center-value">82%</div>
-                                <div class="center-label">Total</div>
-                            </div>
-                        </div>
-                        <p class="chart-subtitle">Sub-title Chart 6</p>
-                        <div class="chart-legend">
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #f59e0b;"></div>
-                                <span class="legend-text">This Month</span>
-                            </div>
-                            <div class="legend-item">
-                                <div class="legend-color" style="background-color: #374151;"></div>
-                                <span class="legend-text">Remaining</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Adding two bar charts below the donut charts -->
-                <div class="bar-charts-section">
-                    <div class="bar-chart-card">
-                        <h3 class="chart-title">Title Graph 1</h3>
-                        <div class="bar-chart-container">
-                            <canvas id="monthlyChart" width="400" height="200"></canvas>
-                        </div>
-                        <p class="chart-subtitle">Sub-title Graph 1</p>
-                    </div>
-
-                    <div class="bar-chart-card">
-                        <h3 class="chart-title">Title Graph 2</h3>
-                        <div class="bar-chart-container">
-                            <canvas id="departmentChart" width="400" height="200"></canvas>
-                        </div>
-                        <p class="chart-subtitle">Sub-title Graph 2</p>
-                    </div>
-                </div>
-
+                <h1 class="main-title">Utilization</h1>
+				<!-- Add asset fields here -->
+				
                 <!-- Adding search field that spans the width -->
                 <div class="search-section">
                     <div class="search-container">
