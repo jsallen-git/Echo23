@@ -173,6 +173,16 @@ body {
   margin: 0 auto;
 }
 
+.rounded-textbox {
+  width: 300px;
+  padding: 5px;
+  border: 3px solid #ccc;
+  border-radius: 6px; /* Rounded corners */
+  background-color: #f0f0f0; /* Light gray background */
+  font-size: 14px;
+  outline: none;
+}
+
 .main-title {
   color: white;
   font-size: 2.5rem;
@@ -403,3 +413,45 @@ body {
 .sidebar.collapsed .sub-menu {
   display: none;
 }
+
+/* ********************************************** */
+.input-wrapper {
+  position: relative;
+  width: 300px;
+  margin: 50px auto;
+}
+
+.rounded-textbox {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  font-size: 16px;
+  outline: none;
+}
+
+.floating-label {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  background-color: #dcdcdc;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+  border-radius: 10px 10px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
