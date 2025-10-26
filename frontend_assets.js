@@ -1,5 +1,4 @@
-<script>
-	console.log("frontend_assets.js loaded");
+console.log("frontend_assets.js loaded");
 
 document.getElementById('deviceForm').addEventListener('submit', async function (e) {
   e.preventDefault(); // Prevent page reload
@@ -38,4 +37,3 @@ document.getElementById('deviceForm').addEventListener('submit', async function 
     alert("An error occurred while uploading. Check console for details.");
   }
 });
-</script>
