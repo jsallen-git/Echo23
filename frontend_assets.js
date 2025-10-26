@@ -21,6 +21,7 @@ document.getElementById('deviceForm').addEventListener('submit', async function(
   });
 
   const result = await response.json();
-  console.log(result);
+	console.log("Form data:", data);
+	console.log(result);
 });
 </script>
