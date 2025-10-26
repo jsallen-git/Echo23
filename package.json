@@ -9,7 +9,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "addToDB.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^9.38.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
