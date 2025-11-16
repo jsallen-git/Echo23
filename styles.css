@@ -580,6 +580,44 @@ body {
   background-color: transparent;
 }
 
+.container-portfolio .form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Style all inputs */
+.container-portfolio input[type="text"],
+.container-portfolio input[type="date"],
+.container-portfolio input[type="number"] {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+
+  /* Raised effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Focus effect */
+.container-portfolio input[type="text"]:focus,
+.container-portfolio input[type="date"]:focus,
+.container-portfolio input[type="number"]:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  border-color: #0078d7; /* optional: highlight border on focus */
+}
+
+/* Labels */
+.container-portfolio label {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
 .row {
   display: flex;
   gap: 10px;
