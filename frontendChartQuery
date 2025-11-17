@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+async function loadCharts() {
+  const response = await fetch('/api/chart-data');
+  const data = await response.json();
+
+  // Example: Satisfaction chart
+  const ctx = document.getElementById('satisfactionChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Active', 'Inactive'],
+      datasets: [{
+        data: [data.activeDevices, data.inactiveDevices],
+        backgroundColor: ['#3b82f6', '#374151']
+      }]
+    },
+    options: {
+      cutout: '70%',
+      plugins: {
+        legend: { display: false }
+      }
+    }
+  });
+
+  // Example: Tasks chart
+  const ctx2 = document.getElementById('tasksChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+      labels: ['Completed', 'Remaining'],
+      datasets: [{
+        data: [data.itDept, data.hrDept], // replace with your logic
+        backgroundColor: ['#10b981', '#374151']
+      }]
+    },
+    options: {
+      cutout: '70%',
+      plugins: {
+        legend: { display: false }
+      }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', loadCharts);
+</script>

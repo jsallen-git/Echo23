@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Device Charts</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-card {
+      display: inline-block;
+      width: 250px;
+      margin: 20px;
+      text-align: center;
+    }
+    .chart-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: auto;
+    }
+    .chart-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+    }
+    .center-value {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .center-label {
+      font-size: 12px;
+      color: #666;
+    }
+    .chart-legend {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Chart cards -->
+  <div class="chart-card">
+    <h3 class="chart-title">Satisfaction Chart</h3>
+    <div class="chart-container">
+      <canvas id="satisfactionChart"></canvas>
+      <div class="chart-center">
+        <div class="center-value">--%</div>
+        <div class="center-label">Total</div>
+      </div>
+    </div>
+    <p class="chart-subtitle">Active vs Inactive</p>
+    <div class="chart-legend">
+      <div class="legend-item">
+        <div class="legend-color" style="background-color:#3b82f6;"></div>
+        <span class="legend-text">Active</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color:#374151;"></div>
+        <span class="legend-text">Inactive</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-card">
+    <h3 class="chart-title">Tasks Chart</h3>
+    <div class="chart-container">
+      <canvas id="tasksChart"></canvas>
+      <div class="chart-center">
+        <div class="center-value">--%</div>
+        <div class="center-label">Total</div>
+      </div>
+    </div>
+    <p class="chart-subtitle">IT vs HR</p>
+    <div class="chart-legend">
+      <div class="legend-item">
+        <div class="legend-color" style="background-color:#10b981;"></div>
+        <span class="legend-text">IT</span>
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color:#374151;"></div>
+        <span class="legend-text">HR</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    async function loadCharts() {
+      const response = await fetch('/api/chart-data');
+      const data = await response.json();
+
+      // Satisfaction chart (Active vs Inactive)
+      const ctx1 = document.getElementById('satisfactionChart').getContext('2d');
+      new Chart(ctx1, {
+        type: 'doughnut',
+        data: {
+          labels: ['Active', 'Inactive'],
+          datasets: [{
+            data: [data.activeDevices, data.inactiveDevices],
+            backgroundColor: ['#3b82f6', '#374151']
+          }]
+        },
+        options: { cutout: '70%', plugins: { legend: { display: false } } }
+      });
+      const percentActive = Math.round((data.activeDevices / data.totalDevices) * 100);
+      document.querySelector('#satisfactionChart')
+        .parentElement.querySelector('.center-value').textContent = percentActive + '%';
+
+      // Tasks chart (IT vs HR)
+      const ctx2 = document.getElementById('tasksChart').getContext('2d');
+      new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+          labels: ['IT', 'HR'],
+          datasets: [{
+            data: [data.itDept, data.hrDept],
+            backgroundColor: ['#10b981', '#374151']
+          }]
+        },
+        options: { cutout: '70%', plugins: { legend: { display: false } } }
+      });
+      const percentIT = Math.round((data.itDept / (data.itDept + data.hrDept)) * 100);
+      document.querySelector('#tasksChart')
+        .parentElement.querySelector('.center-value').textContent = percentIT + '%';
+    }
+
+    document.addEventListener('DOMContentLoaded', loadCharts);
+  </script>
+</body>
+</html>
